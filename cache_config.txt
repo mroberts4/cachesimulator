@@ -1,0 +1,4 @@
+Cache Size=  8KB
+Cache Line Size=32
+Block Size=1024
+Associativity=8
