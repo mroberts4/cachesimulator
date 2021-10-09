@@ -45,7 +45,11 @@ namespace 6
 			int evicts; 
 			
 		/*LRU functions to be implemented based on the cofiurations from the text file.*/
-		
+		void checkEntry();
+		void deleteMemEntry();
+		void printMemAdr();
+		void printSet();
+		void printSet();
 		public:
 			/*Construtor and destructor*/
                         LRU (int&);
