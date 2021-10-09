@@ -1,3 +1,4 @@
+#define fifo_h
 #include <cstdint>
 #include <math.h>
 #include <vector>
