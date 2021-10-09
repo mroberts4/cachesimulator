@@ -2,7 +2,7 @@
 #define LRU_CLASS_H
 
 #include <list>
-#include <algorithm> //for finding in a list
+#include <algorithm> //for finding in a list.
 #include <array>
 #include<iostream>
 #include <sstream>
@@ -16,6 +16,7 @@ using namespace std;
 
 namespace 6
 {
+<<<<<<< Updated upstream
 	class LRU{
 		typedef bitset<32> bits;
 		
@@ -27,6 +28,11 @@ namespace 6
 			bits index;
 			bits offset;
 		};
+=======
+	class LRU
+	{
+		typedef bitset<32>bits;
+>>>>>>> Stashed changes
 		
 		private: 
 			/*Calculated values*/
