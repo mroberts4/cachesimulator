@@ -22,8 +22,8 @@ public class void fifo()
 
 		if (i > stackSize)
 		{
-			stack.pop_front();
+			inputStack.pop_front();
 		}
-		stack.push_back(x);
+		inputStack.push_back(x);
 	}
 }
