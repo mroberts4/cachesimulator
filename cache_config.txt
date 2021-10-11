@@ -1,4 +1,5 @@
 Cache Size=  8KB
-Cache Line Size=32
-Block Size=1024
+Cache Line Size=32 bytes
+Block Size=1024 bytes
 Associativity=8
+Write Buffer Size = 8KB
