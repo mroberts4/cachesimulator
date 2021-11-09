@@ -10,7 +10,7 @@
 #include <list>
 #include <algorithm>
 
-//Main file for the architecture project
+//Main file for the architecture project to show the results of the cache replacement with function calls and reading it from the text file.
 
 
 
