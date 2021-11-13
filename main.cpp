@@ -10,7 +10,7 @@
 #include <list>
 #include <algorithm>
 
-//Main file for the architecture project to show the results of the cache replacement with function calls and reading it from the text file.
+//Main file for the architecture project
 
 
 
@@ -22,8 +22,8 @@ int main(int argc, char** argv)
 
 	/*Instantiate cache class with config file params*/
 	Cache cache1(c,b,n);
-	Cache cache2(c,b,n);
-	cache1.readMemory();
+  Cache cache2(c,b,n);
+  cache1.readMemory();
 	cache1.testMemLRU();
 	cache2.readMemory();
 	cache2.testMemFifo();

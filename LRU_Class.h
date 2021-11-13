@@ -2,7 +2,7 @@
 #define LRU_CLASS_H
 
 #include <list>
-#include <algorithm> //for finding in a list.
+#include <algorithm> //for finding in a list 
 #include <array>
 #include<iostream>
 #include <sstream>
@@ -11,58 +11,84 @@
 #include <unordered_map> 
 #include <cstdint>
 #include <math.h>
-#include < map>
-
 using namespace std;
 
-namespace 6
+struct DATA
 {
+	unsigned long* Tag_selection;   //selection bit for the array
+	bool* is_valid_bit;
+	bool* is_dirty_bit;
+};
+
+struct TAGS
+{
+	long long* TAG;         //TAG array of size ADDRESS_TAGS
+	unsigned long freq;		//Frequency of the tag
+	DATA data;
+};
 
 
-	class LRU{
+class LRU
+{
 		typedef bitset<32> bits;
 		
-		/*structure for the memory address for the cache */
-		struct DATA
-		{
-			bits mem;
-			bits tag; 
-			bits index;
-			bits offset;
-			unsigned long* SelectTag;		//Selection bit array
-			bool *isValid;
-			bool* isDirty;					//For dirty bits
-		};
-		struct TAG_STORE
-		{
-			long long* TAG;					//TAG array of size ADDR_TAGS
-			unsigned long frequency;
-			DATA dstore;					//Struct to store data
-		};
-	class LRU
-	{
-		typedef bitset<32>bits;
-		
 		private: 
-			/*values based on cache_config.txt file to be used*/
-			unsigned long BLOCKSIZE = 1024;				//Number of bytes in a block.
-			unsigned long CACHE_SIZE;					//Size of Cache.
-			unsigned long CACHE_ASSOCIATIVITY = 8;		//Associativity of cache.
-			unsigned long DATA_BLOCKS;					//No of sectors
-			unsigned long ADDR_TAGS;					//Tags per Set
-			struct TAG_STORE** tag_struct;				//tag structure
+			/*Calculated values*/
+			unsigned long blocksize;				//number of bytes in a block
+			unsigned long cache_size;				//Size of the cache
+			unsigned long address_tags;				//Tag number per set
+			unsigned long data_blocks;				//Number of serctors
+			unsigned long cache_associativity;		//Associativity of cache
+			struct TAGS** TagStorage;				//Tag structure
+			
+			//Width of address fields
+			unsigned long Sets;
+			unsigned long offset_bits;
+			unsigned long Address_bits;
+			unsigned long data_block_bits;
+			unsigned long bit_index;
+			unsigned long bit_tags;
+			
+
 			
 		/*LRU functions to be implemented based on the cofiurations from the text file.*/
-		void checkEntry();
-		void deleteMemEntry();
-		void printMemAdr();
-		void printSet();
-		void printSet();
+		
+			unsigned long Evict_Function(unsigned long);
+			void resetFreq(unsigned long, unsigned long);
+
 		public:
-			/*Construtor and destructor*/
-                        LRU (int&);
+
+			//Parameters for the LRU performance
+			unsigned long read = 0; 
+			float miss_rate = 0;
+			unsigned long cache_block_miss = 0;
+			unsigned long read_miss = 0;
+			unsigned long read_hit = 0;
+			unsigned long write_back = 0;
+			unsigned long write_hit = 0;
+			unsigned long write_miss = 0;
+			unsigned long sector_miss = 0;
+			unsigned long write = 0; 
+
+			//default
+			LRU();
+
+			//Displays the contents of the LRU class
+			void CacheContents(); 
+
+			//reads the lru cache contents
+			void readFromAddr(unsigned long);
+
+			//Writes to the lru clas
+			void writeToAddr(unsigned long);
+
+			//Constructor
+			LRU(unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, LRU*);
+
+			//Destructor
 			~LRU();
-			void readMemory();
+
+			//Tests the memory in the LRU class
 			void TestMemory();
 	};
 }
