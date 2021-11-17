@@ -7,6 +7,7 @@
 #include<iostream>
 #include <sstream>
 #include <stdio.h>
+#include <math.h>
 #include <fstream>
 #include <unordered_map> 
 #include <cstdint>
@@ -92,6 +93,19 @@ class LRU
 			//Displays the LRU results 
 			void cacheStats();
 	};
+	LRU::LRU()
+	{
+	}
+    //Implementations for the LRU class.
+	LRU:: LRU (unsigned long blocksize, unsigned long cache_size, unsigned long cache_associativity, unsigned long data_blocks, unsigned long address_tags)
+	{
+	    this -> blocksize = blocksize;
+	    this -> cache_size = cache_size;
+	    this -> cache_associativity = cache_associativity;
+	    this -> address_tags = address_tags;
+	    this -> data_blocks = data_blocks;
+	    Sets = cache_size / (blocksize*cache_associativity*data_blocks);
+	}
 }
 
 #endif
