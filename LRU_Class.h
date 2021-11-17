@@ -104,7 +104,28 @@ class LRU
 	    this -> cache_associativity = cache_associativity;
 	    this -> address_tags = address_tags;
 	    this -> data_blocks = data_blocks;
-	    Sets = cache_size / (blocksize*cache_associativity*data_blocks);
+	    Sets = cache_size / (blocksize *cache_associativity * data_blocks);
+
+	    //Settiing the width of the address bits
+	    offset_bits = ceil (log2(blocksize));
+	    data_block_bits = ceil(log2(data_blocks));
+	    address_tags = ceil (log2(address_tags));
+	    bit_index = ceil(log2(Sets));
+
+	    bit_tags = address_size -address_tags - bit_index -data_block_bits - offset_bits;
+
+	    //iitializing the structure
+	    tag_store = new TAG *[Sets];
+	    for (unsigned long i=; i <Sets; i++)
+	    {
+	        tag_store[i] = new TAG [cache_associativity];
+	    }
+
+	    for (unsigned long i = 0; j < cache_associativity ; j++)
+	    {
+	        tag_store [i][j].TAG = new long long [address_tags];
+	    }
+	    tag_store[i][j].freq = j;
 	}
 }
 
