@@ -30,10 +30,9 @@ struct TAGS
 
 class LRU
 {
-		typedef bitset<32> bits;
-		
+	typedef bitset<32> bits;
 		private: 
-			/*Calculated values*/
+	/*Calculated values*/
 			unsigned long blocksize;				//number of bytes in a block
 			unsigned long cache_size;				//Size of the cache
 			unsigned long address_tags;				//Tag number per set
@@ -90,6 +89,8 @@ class LRU
 
 			//Tests the memory in the LRU class
 			void TestMemory();
+			//Displays the LRU results 
+			void cacheStats();
 	};
 }
 
