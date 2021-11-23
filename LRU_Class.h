@@ -53,7 +53,7 @@ class LRU
 			
 		/*LRU functions to be implemented based on the cofiurations from the text file.*/
 		
-			unsigned long Evict_Function(unsigned long);
+			unsigned long EvictFunction(unsigned long);
 			void resetFreq(unsigned long, unsigned long);
 
 		public:
@@ -72,6 +72,8 @@ class LRU
 
 			//default
 			LRU();
+            //Checks what iss type the block values are
+            void checkTheMissType(unsigned long index, unsigned long assoc);
 
 			//Displays the contents of the LRU class
 			void CacheContents(); 
@@ -124,9 +126,71 @@ class LRU
 	    for (unsigned long i = 0; j < cache_associativity ; j++)
 	    {
 	        tag_store [i][j].TAG = new long long [address_tags];
+	        for (unsigned long k=0; k< ADDRESS_TAGS; k++)
+	        {
+	            tag_store[i][j].TAG[k]= vacant;
+	        }
+	        tag_store[i][j].freq = j;
+
+              tag_store[i][j].data.Tag_selection[k]= new unsigned long [data_blocks];
+              tag_store[i][j].data.is_dirty_bit[k] = new bool [data_blocks];
+              tag_store[i][j].data.is_valid_bit[k] = new bool [data_blocks];
+             for (unsigned long k=0; k<data_blocks; k++)
+             {
+                tag_store[i][j].data.Tag_selection[k]=0;
+	            tag_store[i][j].data.is_dirty_bit[k] = false;
+	            tag_store[i][j].data.is_valid_bit[k] = false;
+	        }
 	    }
-	    tag_store[i][j].freq = j;
 	}
 }
 
+void LRU :: CacheStats()
+{
+
+
+
+
+
+
+
+}
+
+void LRU::readFromAddr(unsigned long address)
+{
+
+
+
+
+
+
+
+
+}
+
+
+void LRU:: writeToAddr(unsigned long address)
+{
+
+
+
+
+
+
+
+}
+
+unsigned long LRU :: EvictFunction(unsigned long address)
+{
+
+
+
+
+}
+void LRU:: checkTheMissType(unsigned long index , unsigned long assoc)
+{
+
+
+
+}
 #endif
