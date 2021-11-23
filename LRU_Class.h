@@ -4,7 +4,7 @@
 #include <list>
 #include <algorithm> //for finding in a list 
 #include <array>
-#include <iostream>
+#include<iostream>
 #include <sstream>
 #include <stdio.h>
 #include <math.h>
@@ -193,4 +193,4 @@ void LRU:: checkTheMissType(unsigned long index , unsigned long assoc)
 
 
 }
-#endif LRU_CLASS_H
+#endif
