@@ -65,6 +65,13 @@ int main(int argc, char** argv)
     data_block_bits = strtoul (argv[6], 0, 10);
     trace_file_contents = strtoul(argv[7], 0, 10);
 
+    cout <<"=====Configurations======";
+    cout << "\n  Block Size:\t\t" << blocksize;
+    cout << "\n  Cache Associativity: \t\t" << cache_associativity;
+    cout << "\n  Data Blocks:\t" << data_blocks;
+    cout << "\n  Address tags:\t" << address_tags;
+    cout << "\n  Data Block Bits:\t\t" << data_block_bits << "\n";
+    cout << "\n  Input File:\t\t" << trace_file_contents << "\n";
 	return 0;
 }
 
