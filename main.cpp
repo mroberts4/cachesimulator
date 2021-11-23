@@ -35,7 +35,7 @@ int main(int argc, char** argv)
 	int n = sizeof(pages)/sizeof(pages[0]);
     int capacity = 32;
     cout << pageFaults(pages, n, capacity);
-	
+	//hello?
 	return 0;
 }
 
