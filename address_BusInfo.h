@@ -1,2 +1,2 @@
 #define ADDRESSS_SIZE 32
-#define acant -1
+#define vacant -1
