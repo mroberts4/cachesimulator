@@ -124,8 +124,22 @@ class LRU
 	    for (unsigned long i = 0; j < cache_associativity ; j++)
 	    {
 	        tag_store [i][j].TAG = new long long [address_tags];
+	        for (unsigned long k=0; k< ADDRESS_TAGS; k++)
+	        {
+	            tag_store[i][j].TAG[k]= vacant;
+	        }
+	        tag_store[i][j].freq = j;
+
+              tag_store[i][j].data.Tag_selection[k]= new unsigned long [data_blocks];
+              tag_store[i][j].data.is_dirty_bit[k] = new bool [data_blocks];
+              tag_store[i][j].data.is_valid_bit[k] = new bool [data_blocks];
+             for (unsigned long k=0; k<data_blocks; k++)
+             {
+                tag_store[i][j].data.Tag_selection[k]=0;
+	            tag_store[i][j].data.is_dirty_bit[k] = false;
+	            tag_store[i][j].data.is_valid_bit[k] = false;
+	        }
 	    }
-	    tag_store[i][j].freq = j;
 	}
 }
 
