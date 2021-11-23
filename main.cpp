@@ -10,8 +10,27 @@
 #include <list>
 #include <algorithm>
 #include <stdlib.h>
+#include "fifo.h"
+#include "LRU_Class.h"
+include <iomanip>
 //Main file for the architecture project
 
+
+//The variables to be used to read the LRU's parameters
+unsigned long blocksize;				//number of bytes in a block
+unsigned long cache_size;				//Size of the cache
+unsigned long address_tags;				//Tag number per set
+unsigned long data_blocks;				//Number of serctors
+unsigned long cache_associativity;		//Associativity of cache
+char *trace_file_contents;              //Input trace file
+
+//Width of address fields
+unsigned long Sets;
+unsigned long offset_bits;
+unsigned long Address_bits;
+unsigned long data_block_bits;
+unsigned long bit_index;
+unsigned long bit_tags;
 
 
 
@@ -36,6 +55,16 @@ int main(int argc, char** argv)
     int capacity = 32;
     cout << pageFaults(pages, n, capacity);
 	//hello?
+
+    //Configuration for LRU Simulator Portion of proejct
+    blocksize = strtoul(argv[1], 0, 10);
+    cache_size = strtoul (argv[2], 0,10);
+    cache_associativity = strtoul (arg[3], 0, 10);
+    data_blocks = strtoul (argv[4], 0, 10);
+    address_tags = strtoul (argv[5], 0, 10);
+    data_block_bits = strtoul (argv[6], 0, 10);
+    trace_file_contents = strtoul(argv[7], 0, 10);
+
 	return 0;
 }
 
