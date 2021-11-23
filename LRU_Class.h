@@ -53,7 +53,7 @@ class LRU
 			
 		/*LRU functions to be implemented based on the cofiurations from the text file.*/
 		
-			unsigned long Evict_Function(unsigned long);
+			unsigned long EvictFunction(unsigned long);
 			void resetFreq(unsigned long, unsigned long);
 
 		public:
@@ -72,6 +72,8 @@ class LRU
 
 			//default
 			LRU();
+            //Checks what iss type the block values are
+            void checkTheMissType(unsigned long index, unsigned long assoc);
 
 			//Displays the contents of the LRU class
 			void CacheContents(); 
@@ -143,4 +145,52 @@ class LRU
 	}
 }
 
+void LRU :: CacheStats()
+{
+
+
+
+
+
+
+
+}
+
+void LRU::readFromAddr(unsigned long address)
+{
+
+
+
+
+
+
+
+
+}
+
+
+void LRU:: writeToAddr(unsigned long address)
+{
+
+
+
+
+
+
+
+}
+
+unsigned long LRU :: EvictFunction(unsigned long address)
+{
+
+
+
+
+}
+void LRU:: checkTheMissType(unsigned long index , unsigned long assoc)
+{
+
+
+
+}
 #endif
