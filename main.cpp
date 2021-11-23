@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include "fifo.h"
 #include "LRU_Class.h"
+#include "address_BusInfo.h"
 include <iomanip>
 //Main file for the architecture project
 
@@ -34,7 +35,7 @@ unsigned long bit_tags;
 
 
 
-int main(int argc, char** argv)
+int main(int argc, char* argv[])
 {
 	int c,b,n;
 	readConfig(c,b,n);	//read in configuration values from file
