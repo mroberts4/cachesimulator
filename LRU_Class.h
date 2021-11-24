@@ -7,6 +7,7 @@
 #include<iostream>
 #include <sstream>
 #include <stdio.h>
+#include <math.h>
 #include <fstream>
 #include <unordered_map> 
 #include <cstdint>
@@ -30,10 +31,9 @@ struct TAGS
 
 class LRU
 {
-		typedef bitset<32> bits;
-		
+	typedef bitset<32> bits;
 		private: 
-			/*Calculated values*/
+	/*Calculated values*/
 			unsigned long blocksize;				//number of bytes in a block
 			unsigned long cache_size;				//Size of the cache
 			unsigned long address_tags;				//Tag number per set
@@ -53,7 +53,7 @@ class LRU
 			
 		/*LRU functions to be implemented based on the cofiurations from the text file.*/
 		
-			unsigned long Evict_Function(unsigned long);
+			unsigned long EvictFunction(unsigned long);
 			void resetFreq(unsigned long, unsigned long);
 
 		public:
@@ -72,6 +72,8 @@ class LRU
 
 			//default
 			LRU();
+            //Checks what iss type the block values are
+            void checkTheMissType(unsigned long index, unsigned long assoc);
 
 			//Displays the contents of the LRU class
 			void CacheContents(); 
@@ -90,7 +92,105 @@ class LRU
 
 			//Tests the memory in the LRU class
 			void TestMemory();
+			//Displays the LRU results 
+			void cacheStats();
 	};
+	LRU::LRU()
+	{
+	}
+    //Implementations for the LRU class.
+	LRU:: LRU (unsigned long blocksize, unsigned long cache_size, unsigned long cache_associativity, unsigned long data_blocks, unsigned long address_tags)
+	{
+	    this -> blocksize = blocksize;
+	    this -> cache_size = cache_size;
+	    this -> cache_associativity = cache_associativity;
+	    this -> address_tags = address_tags;
+	    this -> data_blocks = data_blocks;
+	    Sets = cache_size / (blocksize *cache_associativity * data_blocks);
+
+	    //Settiing the width of the address bits
+	    offset_bits = ceil (log2(blocksize));
+	    data_block_bits = ceil(log2(data_blocks));
+	    address_tags = ceil (log2(address_tags));
+	    bit_index = ceil(log2(Sets));
+
+	    bit_tags = address_size -address_tags - bit_index -data_block_bits - offset_bits;
+
+	    //iitializing the structure
+	    tag_store = new TAG *[Sets];
+	    for (unsigned long i=; i <Sets; i++)
+	    {
+	        tag_store[i] = new TAG [cache_associativity];
+	    }
+
+	    for (unsigned long i = 0; j < cache_associativity ; j++)
+	    {
+	        tag_store [i][j].TAG = new long long [address_tags];
+	        for (unsigned long k=0; k< ADDRESS_TAGS; k++)
+	        {
+	            tag_store[i][j].TAG[k]= vacant;
+	        }
+	        tag_store[i][j].freq = j;
+
+              tag_store[i][j].data.Tag_selection[k]= new unsigned long [data_blocks];
+              tag_store[i][j].data.is_dirty_bit[k] = new bool [data_blocks];
+              tag_store[i][j].data.is_valid_bit[k] = new bool [data_blocks];
+             for (unsigned long k=0; k<data_blocks; k++)
+             {
+                tag_store[i][j].data.Tag_selection[k]=0;
+	            tag_store[i][j].data.is_dirty_bit[k] = false;
+	            tag_store[i][j].data.is_valid_bit[k] = false;
+	        }
+	    }
+	}
 }
 
+void LRU :: CacheStats()
+{
+
+
+
+
+
+
+
+}
+
+void LRU::readFromAddr(unsigned long address)
+{
+
+
+
+
+
+
+
+
+}
+
+
+void LRU:: writeToAddr(unsigned long address)
+{
+
+
+
+
+
+
+
+}
+
+unsigned long LRU :: EvictFunction(unsigned long address)
+{
+
+
+
+
+}
+void LRU:: checkTheMissType(unsigned long index , unsigned long assoc)
+{
+
+
+
+}
 #endif
