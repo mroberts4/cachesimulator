@@ -1,8 +1,4 @@
-output: main.o
-	g++ main.o -o output
-
-main.o: main.cpp
-	g++ -c main.cpp
-
+output: main.cpp LRU_Class.h fifo.h
+	g++ main.o LRU_Class.h fifo.h -i output
 clean:
 	rm *.o output
